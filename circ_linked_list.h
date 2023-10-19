@@ -6,7 +6,7 @@
 #include<stdint.h>
 
 #define LIST_TYPE int
-#define LIST_SIZE 10
+#define LIST_SIZE 4
 
 struct node{
 
@@ -21,6 +21,8 @@ void CreateList(struct node** head, int_least32_t size);
 void PrintList(struct node* head);
 
 void FreeList(struct node** head);
+
+void RemoveNth(struct node** head, int_fast8_t n);
 
 
 

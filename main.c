@@ -25,8 +25,12 @@ int main(){
     CreateList(&head, LIST_SIZE);
     PrintList(head);
     FreeList(&head);
-
+    //printf("USAO1");
+    CreateList(&head, LIST_SIZE);
+    RemoveNth(&head, 5);
     PrintList(head);
+
+    //PrintList(head);
 }
 
 #endif

@@ -44,7 +44,6 @@ void PrintList(struct node* head){
             printf("%d -> ", current->data);
             current = current->next;
         }
-
         printf("%d -> (%d)", current->data, current->next->data);
     }
 }
@@ -67,5 +66,41 @@ void FreeList(struct node** head){
 }
 
 void RemoveNth(struct node** head, int_fast8_t n){
-    
+
+    struct node* nodeN = *head;
+    struct node* first = *head;
+    struct node* previous = *head;
+
+    int_fast8_t j;
+    int i = 0;
+    if(*head==NULL){
+        return;
+    }else{
+        while(previous->next != previous){
+            for(j = 1; j < n; ++j){
+                previous = previous->next;
+            }
+            nodeN = previous->next;
+            previous->next = nodeN->next;
+
+            if(nodeN == *head){
+                *head = nodeN->next;
+            }
+
+            printf("\tIzbacen element %d", nodeN->data);
+            free(nodeN);
+
+            printf("\n");
+
+            PrintList(*head);
+
+        }
+        printf("\tIzbacen element %d", previous->data);
+
+        free(previous);
+
+        *head = NULL;
+        //PrintList(*head);
+
+    }
 }

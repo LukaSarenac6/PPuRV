@@ -26,9 +26,9 @@ void AddEleInFront(struct node** head, struct node* el)
     }
 }
 
-void CreateList(struct node** head, int_least32_t size)
+void CreateList(struct node** head, int_least8_t size)
 {
-    int_fast32_t i;
+    int_fast8_t i;
 
     for (i = 0; i < size; ++i)
     {
@@ -78,7 +78,7 @@ void FreeList(struct node** head)
     *head = NULL;
 }
 
-void RemoveNth(struct node** head, int_fast8_t n)
+void RemoveNth(struct node** head, myInt n)
 {
 
     struct node* nodeN = *head;

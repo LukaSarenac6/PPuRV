@@ -1,48 +1,52 @@
 #include"circ_linked_list.h"
 
-#if 0
-int main()
+myInt main(void);
+
+#if 1
+myInt main(void)
 {
 
-    struct node* head = NULL;
+    myInt arg = 0;
 
-    struct node* node1 = (struct node*)malloc(sizeof(struct node));
-    node1->data = 132;
-    AddEleInFront(&head, node1);
+    printf("Unesite n\t");
+    scanf("%hhd", &arg);
+    struct node* head_node = NULL;
 
+    CreateList(&head_node, LIST_SIZE);
+    PrintList(head_node);
+    FreeList(&head_node);
 
-    printf("%d", node1->data);
+    CreateList(&head_node, LIST_SIZE);
+    RemoveNth(&head_node, arg);
+    PrintList(head_node);
 
-    free(node1);
 
     return 0;
 }
 
-#elif 1
+#elif 0
 
-int main(int argc, char* argv[])
+myInt main(int_fast8_t argc, const char* const argv[])
 {
 
     if (argc != 2)
     {
         printf("Niste uneli trazen broj argumenata!\n");
-        return 1;
+
+    }else
+    {
+        myInt arg = atoi(argv[1]);
+        struct node* head_node = NULL;
+
+        CreateList(&head_node, LIST_SIZE);
+        PrintList(head_node);
+        FreeList(&head_node);
+
+        CreateList(&head_node, LIST_SIZE);
+        RemoveNth(&head_node, arg);
+        PrintList(head_node);
     }
 
-    int_fast8_t n = atoi(argv[1]);
-    printf("Zelite da se brise svaki %d element\n", n);
-
-    struct node* head = NULL;
-
-    CreateList(&head, LIST_SIZE);
-    PrintList(head);
-    FreeList(&head);
-
-    CreateList(&head, LIST_SIZE);
-    RemoveNth(&head, n);
-    PrintList(head);
-
-
+    return 0;
 }
-
 #endif

@@ -1,17 +1,21 @@
 #include"circ_linked_list.h"
 
-void AddEleInFront(struct node** head, struct node* el){
+void AddEleInFront(struct node** head, struct node* el)
+{
 
-    if(*head == NULL){
+    if (*head == NULL)
+    {
 
         el->next = el;
         *head = el;
 
-    }else{
+    }else
+    {
 
         struct node* last = *head;
 
-        while(last->next != *head){
+        while (last->next != *head)
+        {
             last = last->next;
 
         }
@@ -22,24 +26,30 @@ void AddEleInFront(struct node** head, struct node* el){
     }
 }
 
-void CreateList(struct node** head, int_least32_t size){
+void CreateList(struct node** head, int_least32_t size)
+{
     int_fast32_t i;
 
-    for(i = 0; i < size; ++i){
+    for (i = 0; i < size; ++i)
+    {
         struct node* node1 = (struct node*)malloc(sizeof(struct node));
         node1->data = i+10;
         AddEleInFront(head, node1);
     }
 }
 
-void PrintList(struct node* head){
+void PrintList(struct node* head)
+{
     struct node* current = head;
 
-    if(head == NULL){
+    if (head == NULL)
+    {
         printf("\nLista je prazna\n");
-    }else{
+    }else
+    {
 
-        while(current->next != head){
+        while (current->next != head)
+        {
 
             printf("%d -> ", current->data);
             current = current->next;
@@ -48,24 +58,28 @@ void PrintList(struct node* head){
     }
 }
 
-void FreeList(struct node** head){
+void FreeList(struct node** head)
+{
     struct node* node_to_free = *head;
     struct node* next_node;
 
-    if(*head==NULL){
+    if (*head==NULL)
+    {
         return;
-    }else{
+    }else
+    {
         do{
             next_node = node_to_free->next;
             free(node_to_free);
             node_to_free = next_node;
             /*printf("\nMemorija oslobodjena!");*/
-        }while(node_to_free != *head);
+        }while (node_to_free != *head);
     }
     *head = NULL;
 }
 
-void RemoveNth(struct node** head, int_fast8_t n){
+void RemoveNth(struct node** head, int_fast8_t n)
+{
 
     struct node* nodeN = *head;
     struct node* first = *head;
@@ -73,17 +87,22 @@ void RemoveNth(struct node** head, int_fast8_t n){
 
     int_fast8_t j;
     int i = 0;
-    if(*head==NULL){
+    if (*head==NULL)
+    {
         return;
-    }else{
-        while(previous->next != previous){
-            for(j = 1; j < n; ++j){
+    }else
+    {
+        while (previous->next != previous)
+        {
+            for (j = 1; j < n; ++j)
+            {
                 previous = previous->next;
             }
             nodeN = previous->next;
             previous->next = nodeN->next;
 
-            if(nodeN == *head){
+            if (nodeN == *head)
+            {
                 *head = nodeN->next;
             }
 

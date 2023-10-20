@@ -8,7 +8,8 @@
 #define LIST_TYPE int
 #define LIST_SIZE 4
 
-struct node{
+struct node
+{
 
     LIST_TYPE data;
     struct node* next;

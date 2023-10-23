@@ -72,7 +72,6 @@ void FreeList(struct node** head)
             next_node = node_to_free->next;
             free(node_to_free);
             node_to_free = next_node;
-            /*printf("\nMemorija oslobodjena!");*/
         }while (node_to_free != *head);
     }
     *head = NULL;
@@ -119,7 +118,6 @@ void RemoveNth(struct node** head, myInt n)
         free(previous);
 
         *head = NULL;
-        //PrintList(*head);
 
     }
 }
